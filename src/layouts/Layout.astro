@@ -1,6 +1,7 @@
 ---
 // Aquí podrías recibir el título como una propiedad (prop)
 const { title = "Mi Web en Astro" } = Astro.props;
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -23,7 +24,7 @@ const { title = "Mi Web en Astro" } = Astro.props;
 			</div>
 		</nav>
 
-		<slot /> </body>
+		<slot /><Footer /></body>
 </html>
 
 <style is:global>
