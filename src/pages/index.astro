@@ -1,11 +1,33 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
+import BotonElegante from '../components/BotonElegante.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+   <main>
+		<img src="/cat.jpg" alt="Mi foto de perfil" class="avatar" />
+		<h1> Bienvenidos a mi sitio Astro </h1>
+		<p>Esta es la página principal</p>
+		<BotonElegante texto="Ir a Contacto" enlace="/contacto" />
+   </main>
+</a>
 </Layout>
+
+
+
+<style>
+	main {
+		padding: 4rem;
+		font-family: system-ui, sans-serif;
+		text-align: center;
+	}
+	h1 {
+		font-size: 3rem;
+		background: linear-gradient(to right, #4f46e5, #9333ea);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+</style>

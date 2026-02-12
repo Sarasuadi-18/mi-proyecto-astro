@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BotonElegante from '../components/BotonElegante.astro';
+---
+
+<Layout>
+    <div style="padding: 2rem; font-family: sans-serif;">
+    <h1>Página de Contacto</h1>
+    <p>¡Increíble! Acabas de crear una ruta nueva sin configurar nada.</p>
+    <BotonElegante texto="Volver al Inicio" enlace="/" />
+    </div>
+</Layout>
+
+
+<style>
+  /* Estos estilos solo afectan a esta página */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f4f7f6;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    color: #4f46e5;
+    font-size: 2.5rem;
+  }
+
+  p {
+    color: #374151;
+    line-height: 1.6;
+  }
+
+  .boton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+
+  .boton:hover {
+    transform: scale(1.05);
+    background-color: #4338ca;
+  }
+</style>

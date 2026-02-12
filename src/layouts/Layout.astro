@@ -1,23 +1,94 @@
+---
+// Aquí podrías recibir el título como una propiedad (prop)
+const { title = "Mi Web en Astro" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
-	</body>
+		<nav>
+			<div class="nav-content">
+				<a href="/" class="logo">🚀 AstroSite</a>
+				<div class="links">
+					<a href="/">Inicio</a>
+					<a href="/contacto">Contacto</a>
+				</div>
+			</div>
+		</nav>
+
+		<slot /> </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	:root {
+		--primary: #4f46e5;
+		--text: #1f2937;
+		--bg: #ffffff;
 	}
+
+	html, body {
+		margin: 0;
+		font-family: 'Segoe UI', system-ui, sans-serif;
+		background-color: var(--bg);
+		color: var(--text);
+	}
+
+	nav {
+		background: white;
+		border-bottom: 1px solid #eee;
+		padding: 1rem 0;
+		position: sticky;
+		top: 0;
+	}
+
+	.nav-content {
+		max-width: 800px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 2rem;
+	}
+
+	.logo {
+		font-weight: bold;
+		font-size: 1.2rem;
+		text-decoration: none;
+		color: var(--primary);
+	}
+
+	.links a {
+		text-decoration: none;
+		color: #4b5563;
+		margin-left: 20px;
+		font-weight: 500;
+	}
+
+	.links a:hover {
+		color: var(--primary);
+	}
+
+/* Estilos para móviles */
+@media (max-width: 600px) {
+  .nav-content {
+    flex-direction: column; /* Pone el logo arriba y los links abajo */
+    gap: 10px;
+  }
+
+  .links a {
+    margin: 0 10px; /* Espacia mejor los links en pantallas pequeñas */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduce el tamaño del título para que no se corte */
+  }
+}
+
 </style>
