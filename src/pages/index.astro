@@ -1,38 +1,71 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import BotonElegante from '../components/BotonElegante.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const misProyectos = [
+  { 
+    titulo: "E-commerce Zen", 
+    desc: "Tienda online minimalista", 
+    tecnologia: "Astro",
+    link: "#" 
+  },
+  { 
+    titulo: "Weather App", 
+    desc: "Consulta el clima en tiempo real", 
+    tecnologia: "JavaScript",
+    link: "#" 
+  },
+  { 
+    titulo: "Portfolio Personal", 
+    desc: "Este mismo sitio web", 
+    tecnologia: "CSS Grid",
+    link: "#" 
+  }
+];
 ---
 
-<Layout>
-   <main>
-		<img src="/cat.jpg" alt="Mi foto de perfil" class="avatar" />
-		<h1> Bienvenidos a mi sitio Astro </h1>
-		<p>Esta es la página principal</p>
-		<BotonElegante texto="Ir a Contacto" enlace="/contacto" />
-   </main>
 
-	<ul>
-	<li>Astro</li>
-	<li>JavaScript</li>
-	<li>Git & GitHub</li>
-	</ul>
+<Layout title="Mis Proyectos">
+  <main>
+    <h1>Mi Portafolio</h1>
+    
+    <div class="grid-proyectos">
+      {misProyectos.map((proyecto) => (
+        <article class="card">
+          <h3>{proyecto.titulo}</h3>
+          <p>{proyecto.desc}</p>
+          <span class="tag">{proyecto.tecnologia}</span>
+          <br />
+          <a href={proyecto.link}>Ver proyecto</a>
+        </article>
+      ))}
+    </div>
+  </main>
 </Layout>
 
-
-
 <style>
-	main {
-		padding: 4rem;
-		font-family: system-ui, sans-serif;
-		text-align: center;
-	}
-	h1 {
-		font-size: 3rem;
-		background: linear-gradient(to right, #4f46e5, #9333ea);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
+  .grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem 0;
+  }
+  .card {
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #f9fafb;
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: #4f46e5;
+  }
+  .tag {
+    font-size: 0.8rem;
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
 </style>
