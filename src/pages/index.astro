@@ -1,44 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro'; // <--- Importas el archivo nuevo
 
-const misProyectos = [
-  { 
-    titulo: "E-commerce Zen", 
-    desc: "Tienda online minimalista", 
-    tecnologia: "Astro",
-    link: "#" 
-  },
-  { 
-    titulo: "Weather App", 
-    desc: "Consulta el clima en tiempo real", 
-    tecnologia: "JavaScript",
-    link: "#" 
-  },
-  { 
-    titulo: "Portfolio Personal", 
-    desc: "Este mismo sitio web", 
-    tecnologia: "CSS Grid",
-    link: "#" 
-  }
-];
 ---
 
 
 <Layout title="Mis Proyectos">
   <main>
-    <h1>Mi Portafolio</h1>
-    
-    <div class="grid-proyectos">
-      {misProyectos.map((proyecto) => (
-        <article class="card">
-          <h3>{proyecto.titulo}</h3>
-          <p>{proyecto.desc}</p>
-          <span class="tag">{proyecto.tecnologia}</span>
-          <br />
-          <a href={proyecto.link}>Ver proyecto</a>
-        </article>
-      ))}
-    </div>
+   <h1>Mi Portafolio</h1>
+  <Card titulo="Proyecto Web" descripcion="Una web hecha con Astro y mucha paciencia." />
   </main>
 </Layout>
 
