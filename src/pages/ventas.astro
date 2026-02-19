@@ -1,0 +1,30 @@
+---
+
+import VentasLayout from "../layouts/VentasLayout.astro";
+import CardVenta from "../components/CardVenta.astro";
+import CardProducto from "../components/CardProducto.astro";
+---
+
+    <VentasLayout title="Venta Exclusiva | Astro">
+    <main class="hero">
+        <h1>Edición <span>Limitada</span></h1>
+        <p>Consigue la tecnología del futuro hoy mismo.</p>
+
+        <div class="grid">
+        <CardVenta nombre="Silla Cyber-X" precio="499" />
+        <CardVenta nombre="Silla Neon-Drive" precio="550" />
+        </div>
+    </main>
+    </VentasLayout>
+
+<style>
+  .hero { padding: 4rem 5%; text-align: center; }
+  h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+  span { color: #00ffff; text-transform: uppercase; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+</style>

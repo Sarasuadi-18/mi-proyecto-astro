@@ -1,0 +1,93 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f7fa;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Blog index cards */
+.post-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.post-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Post detail */
+.post-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+/* Markdown styles */
+article h2 {
+  margin-top: 2rem;
+}
+
+article ul {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+article p {
+  margin-bottom: 1rem;
+}
