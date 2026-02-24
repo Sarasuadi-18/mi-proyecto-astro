@@ -1,0 +1,131 @@
+---
+import BlogLayout from './BlogLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BlogLayout title={frontmatter.title}>
+  <div class="post-layout-wrapper">
+    <main class="article-content">
+      {/* Imagen principal del post */}
+      {frontmatter.image && (
+        <img src={frontmatter.image} alt={frontmatter.title} class="main-post-img" />
+      )}
+      
+      {/* Título y categoría */}
+      <span class="category-badge">{frontmatter.category}</span>
+      <h1>{frontmatter.title}</h1>
+      
+      {/* Aquí se inyecta el texto del Markdown */}
+      <div class="markdown-text">
+        <slot /> 
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h3>Lo más leído</h3>
+       <div class="trending-item">
+          <img src="/rfc.png" alt="Miniatura" />
+            <div>
+            <a href="/blog/segundo-post">¿Cuántos dígitos debe contener mi RFC?</a>
+            <span>23 Feb 2026</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+
+
+
+  </div>
+</BlogLayout>
+
+
+<style is:global>
+  /* 1. ESTRUCTURA PRINCIPAL */
+  .post-layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+  }
+
+  /* 2. COLUMNA IZQUIERDA (POST) */
+  .article-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  /* Imagen grande del post */
+  .main-post-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* 3. BARRA LATERAL (SIDEBAR) */
+  .sidebar-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .sidebar-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #111;
+  }
+
+  /* 4. ITEM DE LA SIDEBAR (AQUÍ ESTÁ EL TRUCO) */
+  .trending-item {
+    display: grid !important; /* Usamos grid para forzar la posición */
+    grid-template-columns: 80px 1fr; /* Columna fija de 80px para la foto */
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  /* MINIATURA FORZADA */
+  .trending-item img {
+    width: 80px !important;
+    height: 60px !important;
+    min-width: 80px !important; /* No dejamos que se encoja */
+    max-width: 80px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .trending-item a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    display: block;
+  }
+
+  .trending-item span {
+    font-size: 0.75rem;
+    color: #666;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 1000px) {
+    .post-layout-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .sidebar { display: none; }
+  }
+</style>
