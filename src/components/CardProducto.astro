@@ -1,0 +1,53 @@
+---
+const {nombre, precio, stock}=Astro.props
+---
+
+<div>
+    <div>Nuevo</div>
+    <h2>{nombre}</h2>
+    <p>{precio}</p>
+
+    <button> Añadir al carrito</button>
+    <p>¡Añadido con Exito!</p>
+
+</div>
+
+<style>
+    /*Aqui añadimos el diseño vanguardista*/
+    .producto-card{
+        background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+        color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0, 0.5);
+        text-align: center;
+        border: 1px solid #333;
+        transition: transform 0.3s ease;
+    }
+    ..product-card:hover { transform: translateY(-10px); border-color: #00f2fe; }
+    .price { font-size: 2rem; font-weight: bold; color: #00f2fe; }
+    .btn-vanguard {
+        background: #00f2fe;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .hidden { display: none; color: #00f2fe; margin-top: 1rem; }
+
+
+</style>
+
+<script>
+  // Parte 2: Script del Cliente (Interacción JS real)
+  // Esto corre en el navegador del usuario
+  const button = document.querySelector('#buy-btn');
+  const message = document.querySelector('#msg');
+
+  button?.addEventListener('click', () => {
+    message?.classList.remove('hidden');
+    button.textContent = "En el carrito";
+    console.log("Interacción capturada en el cliente");
+  });
